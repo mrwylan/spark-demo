@@ -50,7 +50,8 @@ public class SparkDemo {
 		SparkDemoService.getInstance();
 
 		post("/democomments",
-				(req, res) -> SparkDemoService.getInstance().add(new SparkDemoComment(req.queryParams("comment"))),
+				(req, res) -> SparkDemoService.getInstance().add(new SparkDemoComment(
+						req.queryParams("comment"))),
 				JsonUtil.json());
 		get("/democomments", (req, res) -> SparkDemoService.getInstance().getAll(), JsonUtil.json());
 		get("/democomments/:id", (req, res) -> {
